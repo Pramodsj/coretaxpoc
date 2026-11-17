@@ -1,0 +1,25 @@
+{
+  "name": "coretaxapi",
+  "version": "1.0.0",
+  "description": "API service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pramodsj/coretaxpoc.git"
+  },
+  "keywords": [
+    "coretax",
+    "taxAPI"
+  ],
+  "author": "pramod S J",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pramodsj/coretaxpoc/issues"
+  },
+  "homepage": "https://github.com/Pramodsj/coretaxpoc#readme"
+}
