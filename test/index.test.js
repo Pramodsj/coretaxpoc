@@ -32,6 +32,16 @@ test("health endpoint reports service status", async () => {
   });
 });
 
+test("root endpoint lists available API routes", async () => {
+  await withServer(async (baseUrl) => {
+    const response = await fetch(baseUrl);
+    const result = await response.json();
+    assert.equal(response.status, 200);
+    assert.equal(result.name, "Mock Tax Returns API");
+    assert.ok(result.endpoints.some((endpoint) => endpoint.path === "/api/tax-returns"));
+  });
+});
+
 test("tax returns support create, list, get, update, and delete", async () => {
   await withServer(async (baseUrl) => {
     const createdResponse = await fetch(`${baseUrl}/api/tax-returns`, json(validReturn));

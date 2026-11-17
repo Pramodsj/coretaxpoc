@@ -170,6 +170,23 @@ function createServer({ initialRecords = sampleReturns } = {}) {
       return;
     }
 
+    if (pathname === "/" && request.method === "GET") {
+      sendJson(response, 200, {
+        name: "Mock Tax Returns API",
+        status: "ok",
+        endpoints: [
+          { method: "GET", path: "/health", description: "Service health" },
+          { method: "GET", path: "/api/tax-returns", description: "List, filter, sort, and paginate returns" },
+          { method: "POST", path: "/api/tax-returns", description: "Create a return" },
+          { method: "GET", path: "/api/tax-returns/:id", description: "Get a return" },
+          { method: "PUT", path: "/api/tax-returns/:id", description: "Replace a return" },
+          { method: "PATCH", path: "/api/tax-returns/:id", description: "Update supplied fields" },
+          { method: "DELETE", path: "/api/tax-returns/:id", description: "Delete a return" },
+        ],
+      });
+      return;
+    }
+
     if (pathname === "/health" && request.method === "GET") {
       sendJson(response, 200, { status: "ok" });
       return;
